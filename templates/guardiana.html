@@ -1,0 +1,251 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guardiana</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #90EE90;
+            position: relative; /* Ensure body is relative for positioning children */
+            height: 100vh; /* Make the body take full height */
+            overflow: scroll; /* Prevent scrolling */
+        }
+        .search-bar {
+         width: 150px; /* Adjust the width as per your preference */
+         padding: 2px;
+         margin-right: 20px;
+        }
+
+        .navbar h4 {
+         font-size: 18px; /* Adjust the font size as per your preference */
+        }
+
+
+        .navbar {
+            display: flex;
+            align-items: center;
+            background-color: #333;
+            padding: 5px;
+           
+        }
+
+        .logo {
+            height: 80px; /* Zoomed logo */
+            width: 80px;  /* Ensure it's a circle */
+            margin-right: 20px;
+            border-radius: 55%; /* Make it circular */
+        }
+
+        .search-bar {
+            flex-grow: 1;
+            padding: 5px;
+            margin-right: 10px;
+        }
+
+        .nav-button {
+            background-color: green;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin-left: 10px;
+            cursor: pointer;
+            border-radius: 5px; /* Rounded rectangle shape */
+        }
+
+        .nav-button:hover {
+            background-color: darkgreen;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        .modal-content {
+            background-color: #90EE90;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 400px;
+        }
+
+        .close {
+            color: #000000;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: rgb(240, 6, 6);
+            text-decoration: none;
+            cursor: pointer;
+        }
+        label, input {
+            display: block;
+            width: 100%;
+            margin: 10px 0;
+        }
+
+        .floating-buttons {
+            position: fixed;
+            bottom: 50px;
+            right: 50px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .floating-button {
+            background-color: green;
+            color: white;
+            border: none;
+            padding: 30px 40px;
+            cursor: pointer;
+            border-radius: 5px; /* Rounded rectangle shape */
+        }
+
+        .floating-button:hover {
+            background-color: darkgreen;
+        }
+
+        .centered-content {
+            display: flex;
+            justify-content: left;
+            align-items: center;
+            padding-left: 23px;
+            height: calc(102vh - 180px); /* Adjust height based on navbar height */
+            background-color: #90EE90;
+            padding-bottom: 250px; /* Ensure content doesn't overlap with footer */
+        }
+
+        .inner-box {
+            background-color: #ffffff; /* Lighter shade than background */
+            padding: 50px 50px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: left;
+            max-width: 600px;
+            margin: 30px;
+        }
+
+        .inner-box h1 {
+            margin-top: 0;
+        }
+
+        .inner-box p {
+            margin: 20px 0;
+        }
+
+        /* Navigation Bar */
+        nav a {
+            color: white;
+            padding: 10px 100px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+        nav a:hover {
+            background-color: #2e7d32;
+        }
+
+        /* Main Content Section */
+        .main-content {
+            background: linear-gradient(135deg, #a8e063 0%, #56ab2f 100%);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .main-content h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        .main-content p {
+            line-height: 1.6;
+        }
+
+        /* Buttons */
+        button {
+            background-color: #4caf50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        button:hover {
+            background-color: #45a049;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Floating Buttons */
+        .floating-buttons button {
+            margin-bottom: 5px;
+            margin-left: 5px;
+            margin-top: 5px;
+            margin-right: 5px; 
+               }
+
+        footer {
+            background-color: #2e7d32;
+            color: white;
+            text-align: center;
+            padding: 0.2px 0.2px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <img src="/static/llogobot.png" alt="Guardiana Logo" class="logo">
+        <input type="search" placeholder="Search" class="search-bar">
+        <script src="http://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"></script>
+<script>
+    function loadGoogleTranslate() {
+        new google.translate.TranslateElement("myid")
+    }
+</script>
+<div id = "myid"></div>
+       <h4 style="color: #fff;">Hello, Sara</h4>
+    </nav>
+    <div class="centered-content">
+        <div class="inner-box">
+            <h1>Welcome to Guardiana!</h1>
+            <h2>AI Powered Leaf Analysis for Disease Diagnosis and Information</h2>
+            <p><b>Here, you'll discover the wonders of plant health with our cutting-edge AI-powered leaf image analysis, providing accurate disease diagnosis and effective remedies. Delve into the rich tapestry of plant life as we offer insights into cultivation tips, the purpose behind various plants, and much more. Join us in nurturing a greener, healthier world through knowledge and innovation.</b></p>
+        </div>
+    </div>
+
+    <div class="floating-buttons">
+        <button class="floating-button" onclick="window.location.href='/scan'">Disease Detection</button>
+            <a href="C:\Users\LENOVO\html\projectexpo\scanner.html" target="_blank"></a>
+        <button class="floating-button"onclick="window.location.href='/plant'">Plant</button>
+        <a href ="C:\Users\LENOVO\html\projectexpo\plant.html" target="_blank"></a>
+        <button class="floating-button"onclick="window.location.href='/chat'">Plant AI</button>
+        <a href="C:\Users\LENOVO\html\projectexpo\chatbot.html" target="_blank"></a>
+    </div>
+    <footer>
+        <p>&copy; 2024 Guardiana. All rights reserved.</p>
+    </footer>
+</body>
+</html>
