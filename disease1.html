@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diseased</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #90EE90;
+            position: relative; /* Ensure body is relative for positioning children */
+            height: 100vh; /* Make the body take full height */
+            overflow: scroll; /* Prevent scrolling */
+        }
+        .navbar {
+            display: flex;
+            align-items: center;
+            background-color: #333;
+            padding: 8px;
+            
+        }
+        .navbar h4{
+            color:#fff ;
+        }
+        .logo {
+            height: 50px;
+            width: 50px;
+            margin-right: 20px;
+            border-radius: 50%;
+        }
+        .container {
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #c1ebc6;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 93%; 
+        }
+        .container-inner {
+            margin-left:30% ;
+            margin-right: 34%;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+            border-radius: 10px;
+        }
+        button {
+            background-color: green;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        button:hover {
+            background-color: Darkgreen;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <img src="/static/llogobot.png" alt="Guardiana Logo" class="logo">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <script src="http://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"></script>
+        <script>
+            function loadGoogleTranslate() {
+                new google.translate.TranslateElement("myid")
+            }
+        </script>
+        <div id = "myid"></div>
+        <h4 style="color: #fff;">Hello, Sara</h4>
+    </nav>
+        <h1 style="text-align: center;">Peanut Leaf: Early Leaf Spot</h1>
+        <div class="container">
+            <br><br>
+        <div class="container-inner">
+                <center>
+                    <img src="/static/peanut leaf.jpg" width="400" height="200" alt="Peanut Leaf">
+                </center>
+            </div>
+            <br><br>
+            <h2>Peanut Leaf</h2>
+            <p>
+                Peanut leaves are compound leaves, typically with four leaflets arranged oppositely. Each leaflet is oval-shaped and has a pointed tip. The leaves are bright green in color and can grow up to several inches in length.
+            </p>
+            <h2><u>Preventive Measures for Early Leaf Spot :</u></h2>
+            <ul>
+                <li><strong>Crop Rotation:</strong> Rotate peanut crops with non-host plants to reduce the buildup of pathogens in the soil.</li>
+                <li><strong>Plant Resistant Varieties:</strong> Choose peanut varieties that are resistant to Early Leaf Spot.</li>
+                <li><strong>Proper Spacing:</strong> Ensure proper spacing between plants to improve air circulation and reduce humidity around the plants.</li>
+                <li><strong>Weed Control:</strong> Keep the area around the peanut plants free from weeds to prevent the spread of the disease.</li>
+                <li><strong>Sanitation:</strong> Remove and destroy any infected plant debris promptly to prevent the spread of the disease.</li>
+                <li><strong>Irrigation Management:</strong> Avoid overhead irrigation and use drip irrigation to reduce humidity and prevent fungal growth.</li>
+            </ul>
+            <br>
+            <form id="medicineForm">
+                <input type="radio" id="synthetic" name="medicineType" value="synthetic">
+                <label for="synthetic"><b>Organic</b></label>
+                <input type="radio" id="organic" name="medicineType" value="organic">
+                <label for="organic"><b>Synthetic</b></label>
+                
+            </form>
+            <div id="medicineInfo" style="display: none;">
+                <!-- Placeholder for medicine information -->
+            </div>
+       
+    </div>
+
+    <script>
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_translate_element');
+        }
+
+        document.getElementById("medicineForm").addEventListener("change", function() {
+            var selectedMedicine = document.querySelector('input[name="medicineType"]:checked').value;
+            var medicineInfoContainer = document.getElementById("medicineInfo");
+            medicineInfoContainer.style.display = "block";
+
+            if (selectedMedicine === "synthetic") {
+                medicineInfoContainer.innerHTML = "<h3>Tips: </h3><p><ul><li>Use neem oil: Apply neem oil, a natural fungicide, to help control Early Leaf Spot.</li><li>Rotate crops: Practice crop rotation to reduce the buildup of pathogens in the soil.</li><li>Enhance soil health: Improve soil structure and nutrient levels with compost and organic amendments.</li><li>Plant resistant varieties: Choose crop varieties that are resistant to Early Leaf Spot.</li><li>Practice good sanitation: Remove and destroy infected plant debris to prevent the spread of disease.</li><li>Use beneficial microbes: Apply microbial inoculants to the soil to promote the growth of beneficial microorganisms that can suppress pathogens.</li><li>Implement companion planting: Planting companion crops that repel pests or attract beneficial insects can help reduce disease pressure.</li></ul></p>";
+            } else if (selectedMedicine === "organic") {
+                medicineInfoContainer.innerHTML = "<p><b>Rafale-500gm</b> can be effective against Early Leaf Spot. Mix the powder with water and spray it on the leaves.</h3><h3>Procedure :</h3><ul><li>Measure Rafale powder .</li><li>Mix with water thoroughly.</li><li>Start from the farthest end.</li><li>Maintain consistent pressure and speed.</li><li>Cover upper and lower leaf surfaces evenly.</li><li>Avoid runoff and overlap.</li><li>Choose a dry day with no rain expected for 24 hours.</li></ul></p><center><img src='/static/rafale.png' width='150' height='200'><br><br><button onclick=\"window.open('https://www.flipkart.com/origin-rafale-500-gm-fungicide-soil-manure/p/itmc850c212d3f7e?pid=SMNGU6NATU3NRSFU&lid=LSTSMNGU6NATU3NRSFU8CKPFJ&marketplace=FLIPKART', '_blank')\">Buy Product</button></center>";
+            }
+        });
+    </script>
+</body>
+</html>
