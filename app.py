@@ -1,5 +1,4 @@
 from flask import Flask, render_template
-
 app = Flask(__name__)
 
 @app.route('/')
@@ -42,5 +41,12 @@ def plant3():
 def plant4():
     return render_template('climber.html')
 
+@app.route('/disease')
+def plant5():
+    return render_template('disease1.html')
+
+@app.route('/tomato')
+def plant6():
+    return render_template('tomato.html')
 if __name__ == '__main__':
     app.run(debug=True)
